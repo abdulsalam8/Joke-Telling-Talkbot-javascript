@@ -1,0 +1,30 @@
+<script>
+
+  // This waits for the user to click the Submit button.
+  document.getElementById('submitButton').addEventListener('click',
+  function() {
+    //This takes whatever the user entered and saves it as 'messageInput'.
+    var messageInputValue = document.getElementById('messageInput').value;
+
+    messageInputValue = messageInputValue.toLowerCase();
+//this conditional statement collect user input when they say yo the it will say whatsup
+    if(messageInputValue.includes('yo')){
+      document.getElementById('TalkbotResponse').innerHTML = 'whatsup';
+    }
+
+      if(messageInputValue.includes('hi')){
+      document.getElementById('TalkbotResponse').innerHTML = 'hello';
+    }
+
+      if(messageInputValue.includes('whats good')){
+      document.getElementById('TalkbotResponse').innerHTML = 'ask ur mama';
+    }
+
+      if(messageInputValue.includes('so you wanna play dirty')){
+      document.getElementById('TalkbotResponse').innerHTML = 'did i stutter';
+    }
+
+    // This clears the `messageInput` text box.
+    document.getElementById('messageInput').value = '';
+  });
+</script>
