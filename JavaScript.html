@@ -24,6 +24,10 @@
       document.getElementById('TalkbotResponse').innerHTML = 'did i stutter';
     }
 
+          if(messageInputValue.includes('okay lets do this')){
+      document.getElementById('TalkbotResponse').innerHTML = 'aight let me see what you got hommie';
+    }
+
     // This clears the `messageInput` text box.
     document.getElementById('messageInput').value = '';
   });
