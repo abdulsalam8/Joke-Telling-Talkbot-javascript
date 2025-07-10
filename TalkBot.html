@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-
-<!-- This styles the page based on the file "stylesheet.html" -->
+<html lang="en">
 <head>
-  <?!= include('Stylesheet'); ?>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalkBot</title>
+
+  <!-- Link external stylesheet -->
+  <link rel="stylesheet" href="stylesheet.css" />
 </head>
+<body>
+  <h1>Try my TalkBot!</h1>
+  <p>Enter a message below, and TalkBot will respond.</p>
 
+  <div id="chatbox">
+    <label for="messageInput">Your Message</label>
+    <input type="text" id="messageInput" placeholder="e.g., Tell me a joke!" />
+    
+    <button id="submitButton">Submit</button>
+    
+    <div id="TalkbotResponse">TalkBot is ready to respond...</div>
+  </div>
 
-<html>
-  <body>
-    <h1>Try my TalkBot!</h1>
-
-    <p>Please enter your a message in the box. TalkBot will respond below</p>
-
-    <div id="chatbox">
-      <label>Type your message here: </label>
-      <input type="text" id="messageInput" placeholder="ex: Tell me a joke!" />
-      
-      <button id="submitButton">Submit</button>
-      
-      <br/>
-      
-      <span>TalkBot: </span>
-      <span id="TalkbotResponse">...</span>
-    </div>
-
-    <?!= include('JavaScript'); ?>
-  </body>
+  <!-- Link external JavaScript -->
+  <script src="script.js"></script>
+</body>
 </html>
