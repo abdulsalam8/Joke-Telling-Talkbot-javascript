@@ -4,34 +4,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const responseBox = document.getElementById('TalkbotResponse');
 
   const responses = [
-    { trigger: 'yo', reply: 'whatsup' },
-    { trigger: 'hi', reply: 'hello' },
-    { trigger: 'whats good', reply: 'ask ur mama' },
-    { trigger: 'so you wanna play dirty', reply: 'did I stutter' },
-    { trigger: 'okay lets do this', reply: 'aight let me see what you got hommie' },
+    { trigger: 'yo', reply: 'What’s up?' },
+    { trigger: 'hi', reply: 'Hello!' },
+    { trigger: 'whats good', reply: 'Ask your mama.' },
+    { trigger: 'so you wanna play dirty', reply: 'Did I stutter?' },
+    { trigger: 'okay lets do this', reply: 'Aight, let me see what you got, homie.' },
   ];
 
-  submitButton.addEventListener('click', () => {
-    let input = messageInput.value.trim().toLowerCase();
+  function getBotReply(input) {
+    input = input.toLowerCase();
+    const match = responses.find(({ trigger }) => input.includes(trigger));
+    return match ? match.reply : "I don't understand that yet.";
+  }
 
-    if (!input) {
+  function handleSubmit() {
+    const userInput = messageInput.value.trim();
+    if (!userInput) {
       responseBox.textContent = 'Please say something.';
       return;
     }
 
-    let matched = false;
-    for (let { trigger, reply } of responses) {
-      if (input.includes(trigger)) {
-        responseBox.textContent = reply;
-        matched = true;
-        break;
-      }
-    }
-
-    if (!matched) {
-      responseBox.textContent = "I don't understand that yet.";
-    }
-
+    responseBox.textContent = getBotReply(userInput);
     messageInput.value = '';
+  }
+
+  submitButton.addEventListener('click', handleSubmit);
+
+  // Optional: allow Enter key to submit
+  messageInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSubmit();
   });
 });
